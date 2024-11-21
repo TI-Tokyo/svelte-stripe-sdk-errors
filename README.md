@@ -1,38 +1,39 @@
-# sv
+# Stripe.js SDK Integration Errors in SvelteKit
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a reproduction repository for errors encountered whilst integrating the Stripe.js SDK with SvelteKit.
 
-## Creating a project
+## Running the Project
 
-If you're seeing this, you've probably already done this step. Congrats!
-
+1. Install dependencies:
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install
+# or
+pnpm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+2. Start the development server:
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# or
+pnpm dev
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
+3. Open your browser and navigate to:
+```
+http://localhost:5173
+# or as shown in the terminal
 ```
 
-You can preview the production build with `npm run preview`.
+## Known Issues
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### Chrome Browser Connection Errors
+
+The following errors appear in Chrome's console when attempting to connect to Stripe's services:
+
+```javascript
+POST https://r.stripe.com/b net::ERR_CONNECTION_REFUSED
+
+r.stripe.com/b:1 Failed to load resource: net::ERR_CONNECTION_REFUSED
+
+r.stripe.com/b:1 Failed to load resource: net::ERR_CONNECTION_REFUSED
+```
